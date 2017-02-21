@@ -123,7 +123,11 @@ public class Client implements MessageRouterStateListener {
 	}
 
 	public Object call(String command, Object content) throws Exception {
-		return router.call(new Message(command, content),60000);
+		return call(command, content, 60000);
+	}
+	
+	public Object call(String command, Object content, long timeout) throws Exception {
+		return router.call(new Message(command, content),timeout);
 	}
 
 	public String getAgentHost() {
