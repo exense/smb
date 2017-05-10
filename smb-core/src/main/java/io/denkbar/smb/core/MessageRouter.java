@@ -130,6 +130,7 @@ public class MessageRouter extends Thread {
 				if(responseHolder!=null) {
 					synchronized (responseHolder) {
 						responseHolder.processed = true;
+						responseHolder.exception = ((SynchronMessageResponse) m).getException();
 						responseHolder.response = m.getContent();
 						responseHolder.notify();					
 					}

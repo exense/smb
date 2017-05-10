@@ -20,6 +20,10 @@
 package io.denkbar.smb.core;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -169,5 +173,65 @@ public class Client implements MessageRouterStateListener {
 
 	public void unregisterPermanentListener(String type, MessageListener listener) {
 		router.unregisterPermanentListener(type, listener);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> T getProxy(final Class<T> interfaceClass, final long calltimeout) {
+		return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, getInvocationHandler(interfaceClass, calltimeout));
+	}
+
+	public <T> InvocationHandler getInvocationHandler(final Class<T> interfaceClass, final long calltimeout) {
+		return new InvocationHandler() {
+			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+				Object[] params = new Object[]{method.getName(), args};
+				return call(interfaceClass.getName(), params, calltimeout);
+			}	
+		};
+	}
+	
+	public <T> void registerSynchronListener(final Class<T> interfaceClass, final T listener) {
+		registerSynchronListener(interfaceClass.getName(), new SynchronMessageListener() {
+			public Serializable onSynchronMessage(Message msg) throws Exception {
+				Object[] content = (Object[]) msg.getContent();
+				Object[] args = (Object[]) content[1];
+				int argsCount = args!=null?args.length:0;
+				if(argsCount==0) {
+					args = new Object[0];
+				}
+				Class<?>[] types = new Class<?>[argsCount];
+				for(int i=0;i<argsCount;i++) {
+					types[i]=args[i].getClass();
+				}
+				
+				String methodName = (String)content[0];
+				
+				Method method = getMethodMatchingSignature(interfaceClass, methodName, types);
+				if(method!=null) {
+					Object result = method.invoke(listener, args);
+					return (Serializable) result;					
+				} else {
+					throw new RuntimeException("No method matching found");
+				}
+			}
+
+			private <T> Method getMethodMatchingSignature(final Class<T> interfaceClass, String methodName,
+					Class<?>[] types) {
+				for(Method m:interfaceClass.getMethods()) {
+					if(m.getName().equals(methodName)&&m.getParameters().length==types.length) {
+						boolean match = true;
+						for(int i=0;i<m.getParameterTypes().length;i++) {
+							Class<?> methodType = m.getParameterTypes()[i];
+							if(!methodType.isAssignableFrom(types[i])) {
+								match = false;
+							}
+						}
+						if(match) {
+							return m;
+						}
+					}
+				}
+				return null;
+			}
+		});
 	}
 }
