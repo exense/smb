@@ -289,7 +289,12 @@ public class MessageRouter extends Thread {
 			} catch (Exception e) {
 				exception = e;
 			} finally {
-				SynchronMessageResponse response = new SynchronMessageResponse(msg.getType(), reponse, msg.getCorrelationID(), exception);
+				RemoteException remoteException = null;
+				if(exception!=null) {
+					// Wrap exception to avoid ClassNotFound exception on the client side
+					remoteException = new RemoteException(exception);	
+				}
+				SynchronMessageResponse response = new SynchronMessageResponse(msg.getType(), reponse, msg.getCorrelationID(), remoteException);
 				send(response);
 			}
 		}
