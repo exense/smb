@@ -1,17 +1,53 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>io.denkbar.smb</groupId>
 	<artifactId>smb-core</artifactId>
-	<version>1.4</version>
+	<version>1.4-SNAPSHOT</version>
+
+	<name>SMB</name>
+	<url>http://exense.ch/</url>	
+	<licenses>
+		<license>
+			<name>The GNU Affero General Public License 3.0</name>
+			<url>http://www.gnu.org/licenses/</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Jerome Comte</name>
+			<email>jerome.comte@exense.ch</email>
+			<organization>Exense</organization>
+			<organizationUrl>http://exense.ch</organizationUrl>
+			<url>http://step.exense.ch/</url>
+		</developer>
+		<developer>
+			<name>Dorian Cransac</name>
+			<email>dorian.cransac@exense.ch</email>
+			<organization>Exense</organization>
+			<organizationUrl>http://exense.ch</organizationUrl>
+			<url>http://step.exense.ch/</url>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git://github.com/exense/smb/</connection>
+		<developerConnection>scm:git:ssh://github.com/exense/smb.git</developerConnection>
+		<url>https://github.com/exense/smb/</url>
+	</scm>
 	
 	<distributionManagement>
-		<repository>
-			<id>nexus</id>
-			<url>http://nexus.stepcloud.ch/nexus/content/repositories/releases</url>
-		</repository>
+		<snapshotRepository>
+			<id>snapshot-nexus</id>
+			<url>https://nexus-enterprise.exense.ch/repository/exense-snapshots/</url>
+		</snapshotRepository>
+		<!-- <repository> -->
+		<!-- <id>nexus</id> -->
+		<!-- <url>http://nexus.stepcloud.ch/nexus/content/repositories/releases</url> -->
+		<!-- </repository> -->
 	</distributionManagement>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
