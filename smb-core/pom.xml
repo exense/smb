@@ -3,7 +3,7 @@
 
 	<groupId>io.denkbar.smb</groupId>
 	<artifactId>smb-core</artifactId>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.5</version>
 
 	<name>SMB</name>
 	<url>http://exense.ch/</url>
@@ -33,6 +33,7 @@
 		<connection>scm:git:https://github.com/exense/smb/</connection>
 		<developerConnection>scm:git:https://github.com/exense/smb.git</developerConnection>
 		<url>https://github.com/exense/smb/</url>
+    <tag>smb-core-1.5</tag>
   </scm>
 
 <!--     <properties> -->
