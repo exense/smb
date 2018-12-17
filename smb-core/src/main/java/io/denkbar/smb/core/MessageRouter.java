@@ -1,5 +1,5 @@
 /*******************************************************************************
- * (C) Copyright 2016 Jérôme Comte and Dorian Cransac
+ * (C) Copyright 2016 JÃ©rÃ´me Comte and Dorian Cransac
  *  
  *  This file is part of djigger
  *  
