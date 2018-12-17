@@ -45,7 +45,7 @@
 			<url>https://nexus-enterprise.exense.ch/repository/exense-snapshots/</url>
 		</snapshotRepository>
 		<repository>
-			<id>ossrh-release</id>
+			<id>ossrh</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
 	</distributionManagement>
