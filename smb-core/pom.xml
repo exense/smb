@@ -37,6 +37,10 @@
 		<url>https://github.com/exense/smb/</url>
 	</scm>
 
+    <properties>
+      <project.scm.id>github.com</project.scm.id>
+    </properties>
+    
 	<distributionManagement>
 		<snapshotRepository>
 			<id>snapshot-nexus</id>
