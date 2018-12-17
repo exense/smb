@@ -32,8 +32,8 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:git://github.com/exense/smb/</connection>
-		<developerConnection>scm:git:git://github.com/exense/smb.git</developerConnection>
+		<connection>scm:git:https://github.com/exense/smb/</connection>
+		<developerConnection>scm:git:https://github.com/exense/smb.git</developerConnection>
 		<url>https://github.com/exense/smb/</url>
 	</scm>
 
