@@ -3,9 +3,12 @@
 
 	<groupId>io.denkbar.smb</groupId>
 	<artifactId>smb-core</artifactId>
-	<version>1.6-SNAPSHOT</version>
+	<version>1.5-SNAPSHOT</version>
 
 	<name>SMB</name>
+	<description>
+		SMB
+	</description>
 	<url>http://exense.ch/</url>
 	<licenses>
 		<license>
