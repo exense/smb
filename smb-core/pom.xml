@@ -47,7 +47,7 @@
 
 	<distributionManagement>
 		<snapshotRepository>
-			<id>snapshot-nexus</id>
+			<id>nexus-exense</id>
 			<url>https://nexus-enterprise.exense.ch/repository/exense/</url>
 		</snapshotRepository>
 		<repository>
