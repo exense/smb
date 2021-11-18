@@ -1,17 +1,17 @@
 {
-	"NAME": "SMB",
-	"OS": "LINUX",
-	
-	"SUBPROJECTS":
-	{
-		"TYPE":		["POM"],
-		"FOLDER":	["smb-core/"],
-		
-		"URL_STAGING":	["nexus-staging::https://nexus-enterprise.exense.ch/repository/staging-maven/"],
-		"URL_PROD":		  ["sonatype::https://oss.sonatype.org/service/local/staging/deploy/maven2"],
-		
-		"CONFIG_STAGING": [ "DefaultBuild"],
-		"CONFIG_PROD": [ "DefaultBuild"]
-	},
-	"DISTRIBUTIONS": { "TYPE":[],"ORIGIN_FILE":[],"DESTINATION_NAME":[],"URL_STAGING":[],"URL_PROD":[],"OS":[],"CONFIG":[] }
+	"ACTION": "COMPILE",
+	"TYPE": "POM",
+	"FOLDER": "smb-core/",
+	"PARAMETERS": [
+		{
+			"NAME": "DEVELOPMENT",
+			"URL": "nexus-staging::https://nexus-enterprise.exense.ch/repository/staging-maven/",
+			"CONFIG": "DefaultBuild"
+		},
+		{
+			"NAME": "PRODUCTION",
+			"URL": "sonatype::https://oss.sonatype.org/service/local/staging/deploy/maven2",
+			"CONFIG": "DefaultBuild"
+		}
+	]
 }
