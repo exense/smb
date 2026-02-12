@@ -105,6 +105,8 @@ public class MessageRouter extends Thread {
 		connected = false;
 		if(!(e instanceof SocketException || e instanceof EOFException)) {
 			logger.error("Unexpected error", e);
+		} else {
+			logger.debug("Communication exception (client disconnect?)", e);
 		}
 		try {
 			in.close();

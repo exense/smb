@@ -3,7 +3,7 @@
 
 	<groupId>ch.exense.smb</groupId>
 	<artifactId>smb-core</artifactId>
-	<version>1.11</version>
+	<version>0.0.0-SNAPSHOT</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>
