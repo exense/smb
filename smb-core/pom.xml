@@ -3,13 +3,13 @@
 
 	<groupId>ch.exense.smb</groupId>
 	<artifactId>smb-core</artifactId>
-	<version>1.11-SNAPSHOT</version>
+	<version>0.0.0-SNAPSHOT</version>
 
-	<name>SMB</name>
+	<name>${project.groupId}:${project.artifactId}</name>
 	<description>
 		SMB
 	</description>
-	<url>http://exense.ch/</url>
+	<url>https://github.com/exense/smb</url>
 	<licenses>
 		<license>
 			<name>The GNU Affero General Public License 3.0</name>
@@ -18,15 +18,14 @@
 	</licenses>
 	<developers>
 		<developer>
-			<name>Jerome Comte</name>
-			<email>jerome.comte@exense.ch</email>
-			<organization>Exense</organization>
-			<organizationUrl>http://exense.ch</organizationUrl>
-			<url>http://step.exense.ch/</url>
+			<name>Exense GmbH</name>
+			<organization>Exense GmbH</organization>
+			<organizationUrl>https://exense.ch</organizationUrl>
+			<email>support@exense.ch</email>
 		</developer>
-	</developers>	
+	</developers>
   <scm>
-		<connection>scm:git:https://github.com/exense/smb/</connection>
+		<connection>scm:git:https://github.com/exense/smb.git</connection>
 		<developerConnection>scm:git:https://github.com/exense/smb.git</developerConnection>
 		<url>https://github.com/exense/smb/</url>
 		<tag>1.8</tag>
