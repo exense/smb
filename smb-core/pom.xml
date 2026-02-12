@@ -24,13 +24,6 @@
 			<organizationUrl>http://exense.ch</organizationUrl>
 			<url>http://step.exense.ch/</url>
 		</developer>
-		<developer>
-			<name>Dorian Cransac</name>
-			<email>dorian.cransac@exense.ch</email>
-			<organization>Exense</organization>
-			<organizationUrl>http://exense.ch</organizationUrl>
-			<url>http://step.exense.ch/</url>
-		</developer>
 	</developers>	
   <scm>
 		<connection>scm:git:https://github.com/exense/smb/</connection>
@@ -110,14 +103,14 @@
 
 	<profiles>
 		<profile>
-			<id>Default</id>
+			<id>DefaultBuild</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<!-- Local compilation - no signature -->
 		</profile>
 		<profile>
-			<id>DefaultBuild</id>
+			<id>SignedBuild</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>
@@ -148,5 +141,4 @@
 			</build>
 		</profile>
 	</profiles>
-
 </project>
