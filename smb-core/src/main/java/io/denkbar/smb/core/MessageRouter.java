@@ -19,12 +19,7 @@
  *******************************************************************************/
 package io.denkbar.smb.core;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -108,7 +103,7 @@ public class MessageRouter extends Thread {
 
 	private void handleException(Exception e) {
 		connected = false;
-		if(!(e instanceof SocketException)) {
+		if(!(e instanceof SocketException || e instanceof EOFException)) {
 			logger.error("Unexpected error", e);
 		}
 		try {
