@@ -53,6 +53,11 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>3.0.0-M1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
@@ -91,27 +96,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-
-			<!-- Disable old maven-deploy plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.0.0-M1</version>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-
-			<!-- Publish directly to central instead -->
-			<plugin>
-				<groupId>org.sonatype.central</groupId>
-				<artifactId>central-publishing-maven-plugin</artifactId>
-				<version>0.8.0</version>
-				<extensions>true</extensions>
-				<configuration>
-					<publishingServerId>sonatype</publishingServerId>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
